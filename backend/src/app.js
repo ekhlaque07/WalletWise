@@ -1,9 +1,10 @@
+
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 
 const {
-  generalLimiter,
+    generalLimiter,
 } = require("./middleware/securityMiddleware");
 
 const errorMiddleware = require("./middleware/errorMiddleware");
@@ -11,16 +12,21 @@ const errorMiddleware = require("./middleware/errorMiddleware");
 const app = express();
 
 // =====================================================
+// TRUST PROXY
+// =====================================================
+
+app.set("trust proxy", 1);
+
+// =====================================================
 // SECURITY HEADERS
 // =====================================================
 
 app.use(
-  helmet({
-    crossOriginResourcePolicy: {
-      policy: "cross-origin",
-    },
-  }),
-  app.set("trust proxy", 1)
+    helmet({
+        crossOriginResourcePolicy: {
+            policy: "cross-origin",
+        },
+    })
 );
 
 // =====================================================
@@ -32,10 +38,15 @@ const allowedOrigins = (
     "http://localhost:5173"
 )
     .split(",")
-    .map((origin) => origin.trim().replace(/\/$/, ""))
+    .map((origin) =>
+        origin.trim().replace(/\/$/, "")
+    )
     .filter(Boolean);
 
-console.log("Allowed CORS origins:", allowedOrigins);
+console.log(
+    "Allowed CORS origins:",
+    allowedOrigins
+);
 
 app.use(
     cors({
@@ -50,7 +61,11 @@ app.use(
                 .trim()
                 .replace(/\/$/, "");
 
-            if (allowedOrigins.includes(normalizedOrigin)) {
+            if (
+                allowedOrigins.includes(
+                    normalizedOrigin
+                )
+            ) {
                 return callback(null, true);
             }
 
@@ -60,7 +75,9 @@ app.use(
             );
 
             return callback(
-                new Error("CORS: Origin not allowed")
+                new Error(
+                    "CORS: Origin not allowed"
+                )
             );
         },
 
@@ -87,16 +104,16 @@ app.use(
 // =====================================================
 
 app.use(
-  express.json({
-    limit: "1mb",
-  })
+    express.json({
+        limit: "1mb",
+    })
 );
 
 app.use(
-  express.urlencoded({
-    extended: true,
-    limit: "1mb",
-  })
+    express.urlencoded({
+        extended: true,
+        limit: "1mb",
+    })
 );
 
 // =====================================================
@@ -114,19 +131,15 @@ const transactionRoutes = require("./routes/transactionRoutes");
 const budgetRoutes = require("./routes/budgetRoutes");
 const goalRoutes = require("./routes/goalRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
-
 const mlRoutes = require("./routes/mlRoutes");
 const anomalyRoutes = require("./routes/anomalyRoutes");
 const cashflowRoutes = require("./routes/cashflowRoutes");
-
 const aiAdvisorRoutes = require("./routes/aiAdvisorRoutes");
 const simulatorRoutes = require("./routes/simulatorRoutes");
 const agentRoutes = require("./routes/agentRoutes");
 const approvalRoutes = require("./routes/approvalRoutes");
 const hfTestRoutes = require("./routes/hfTestRoutes");
-
 const notificationRoutes = require("./routes/notificationRoutes");
-
 const userRoutes = require("./routes/userRoutes");
 
 // =====================================================
@@ -134,10 +147,10 @@ const userRoutes = require("./routes/userRoutes");
 // =====================================================
 
 app.get("/", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Welcome to WalletWise API",
-  });
+    res.status(200).json({
+        success: true,
+        message: "Welcome to WalletWise API",
+    });
 });
 
 // =====================================================
@@ -145,10 +158,10 @@ app.get("/", (req, res) => {
 // =====================================================
 
 app.get("/api/test", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "WalletWise API is working",
-  });
+    res.status(200).json({
+        success: true,
+        message: "WalletWise API is working",
+    });
 });
 
 // =====================================================
@@ -157,36 +170,76 @@ app.get("/api/test", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 
-app.use("/api/transactions", transactionRoutes);
+app.use(
+    "/api/transactions",
+    transactionRoutes
+);
+
 app.use("/api/budgets", budgetRoutes);
+
 app.use("/api/goals", goalRoutes);
-app.use("/api/analytics", analyticsRoutes);
+
+app.use(
+    "/api/analytics",
+    analyticsRoutes
+);
 
 app.use("/api/ml", mlRoutes);
-app.use("/api/anomalies", anomalyRoutes);
-app.use("/api/cashflow", cashflowRoutes);
 
-app.use("/api/ai-advisor", aiAdvisorRoutes);
-app.use("/api/simulator", simulatorRoutes);
+app.use(
+    "/api/anomalies",
+    anomalyRoutes
+);
 
-app.use("/api/agent", agentRoutes);
-app.use("/api/approvals", approvalRoutes);
+app.use(
+    "/api/cashflow",
+    cashflowRoutes
+);
 
-app.use("/api/hf", hfTestRoutes);
+app.use(
+    "/api/ai-advisor",
+    aiAdvisorRoutes
+);
 
-app.use("/api/notifications", notificationRoutes);
+app.use(
+    "/api/simulator",
+    simulatorRoutes
+);
 
-app.use("/api/user", userRoutes);
+app.use(
+    "/api/agent",
+    agentRoutes
+);
+
+app.use(
+    "/api/approvals",
+    approvalRoutes
+);
+
+app.use(
+    "/api/hf",
+    hfTestRoutes
+);
+
+app.use(
+    "/api/notifications",
+    notificationRoutes
+);
+
+app.use(
+    "/api/user",
+    userRoutes
+);
 
 // =====================================================
 // 404
 // =====================================================
 
 app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: "Route not found",
-  });
+    res.status(404).json({
+        success: false,
+        message: "Route not found",
+    });
 });
 
 // =====================================================
