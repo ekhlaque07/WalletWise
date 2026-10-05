@@ -33,26 +33,29 @@ app.use(
 // CORS
 // =====================================================
 
+// =====================================================
+// CORS
+// =====================================================
+
 const allowedOrigins = (
     process.env.FRONTEND_URL ||
     "http://localhost:5173"
 )
     .split(",")
-    .map((origin) =>
-        origin.trim().replace(/\/$/, "")
-    )
+    .map((origin) => origin.trim().replace(/\/$/, ""))
     .filter(Boolean);
 
-console.log(
-    "Allowed CORS origins:",
-    allowedOrigins
-);
+console.log("=================================");
+console.log("FRONTEND_URL ENV:", process.env.FRONTEND_URL);
+console.log("ALLOWED CORS ORIGINS:", allowedOrigins);
+console.log("=================================");
 
 app.use(
     cors({
         origin: function (origin, callback) {
-            // Allow requests without an Origin header
-            // such as server-to-server requests.
+            console.log("Incoming CORS Origin:", origin);
+
+            // Server-to-server / requests without Origin
             if (!origin) {
                 return callback(null, true);
             }
@@ -61,23 +64,27 @@ app.use(
                 .trim()
                 .replace(/\/$/, "");
 
-            if (
-                allowedOrigins.includes(
+            console.log(
+                "Normalized Origin:",
+                normalizedOrigin
+            );
+
+            if (allowedOrigins.includes(normalizedOrigin)) {
+                console.log(
+                    "CORS ALLOWED:",
                     normalizedOrigin
-                )
-            ) {
+                );
+
                 return callback(null, true);
             }
 
             console.error(
-                "Blocked CORS origin:",
-                origin
+                "CORS BLOCKED:",
+                normalizedOrigin
             );
 
             return callback(
-                new Error(
-                    "CORS: Origin not allowed"
-                )
+                new Error("CORS: Origin not allowed")
             );
         },
 
