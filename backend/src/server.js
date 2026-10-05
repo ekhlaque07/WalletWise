@@ -1,3 +1,7 @@
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 const dns = require("dns");
 
 dns.lookup(
@@ -49,9 +53,7 @@ socket.on("error", (error) => {
     );
 });
 
-const dotenv = require("dotenv");
 
-dotenv.config();
 
 // =====================================================
 // ENVIRONMENT VARIABLES
