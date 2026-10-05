@@ -5,8 +5,6 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     requireTLS: true,
-
-    // Force IPv4
     family: 4,
 
     auth: {
@@ -28,6 +26,7 @@ const sendPasswordResetEmail = async (email, resetURL) => {
         from: `"WalletWise" <${process.env.EMAIL_USER}>`,
         to: email,
         subject: "Reset Your WalletWise Password",
+
         html: `
             <h2>WalletWise Password Reset</h2>
 
