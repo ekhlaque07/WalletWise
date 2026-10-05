@@ -19,7 +19,8 @@ app.use(
     crossOriginResourcePolicy: {
       policy: "cross-origin",
     },
-  })
+  }),
+  app.set("trust proxy", 1)
 );
 
 // =====================================================
@@ -27,28 +28,58 @@ app.use(
 // =====================================================
 
 const allowedOrigins = (
-  process.env.FRONTEND_URL || "http://localhost:5173"
+    process.env.FRONTEND_URL ||
+    "http://localhost:5173"
 )
-  .split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
+    .split(",")
+    .map((origin) => origin.trim().replace(/\/$/, ""))
+    .filter(Boolean);
+
+console.log("Allowed CORS origins:", allowedOrigins);
 
 app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests such as Postman/server-to-server
-      if (!origin) {
-        return callback(null, true);
-      }
+    cors({
+        origin: function (origin, callback) {
+            // Allow requests without an Origin header
+            // such as server-to-server requests.
+            if (!origin) {
+                return callback(null, true);
+            }
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
+            const normalizedOrigin = origin
+                .trim()
+                .replace(/\/$/, "");
 
-      return callback(new Error("CORS: Origin not allowed"));
-    },
-    credentials: true,
-  })
+            if (allowedOrigins.includes(normalizedOrigin)) {
+                return callback(null, true);
+            }
+
+            console.error(
+                "Blocked CORS origin:",
+                origin
+            );
+
+            return callback(
+                new Error("CORS: Origin not allowed")
+            );
+        },
+
+        credentials: true,
+
+        methods: [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE",
+            "OPTIONS",
+        ],
+
+        allowedHeaders: [
+            "Content-Type",
+            "Authorization",
+        ],
+    })
 );
 
 // =====================================================
