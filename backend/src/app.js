@@ -42,7 +42,9 @@ const allowedOrigins = (
     "http://localhost:5173"
 )
     .split(",")
-    .map((origin) => origin.trim().replace(/\/$/, ""))
+    .map((origin) =>
+        origin.trim().replace(/\/$/, "")
+    )
     .filter(Boolean);
 
 console.log("=================================");
@@ -55,7 +57,7 @@ app.use(
         origin: function (origin, callback) {
             console.log("Incoming CORS Origin:", origin);
 
-            // Server-to-server / requests without Origin
+            // Allow requests without an Origin header
             if (!origin) {
                 return callback(null, true);
             }
