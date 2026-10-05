@@ -1,0 +1,944 @@
+
+/* =========================================================
+   NAVBAR
+   ---------------------------------------------------------
+   Matches:
+   <header className="navbar">
+   
+   Desktop:
+   - Fixed to the top
+   - Starts after the sidebar
+   - Contains navbar-left and navbar-right
+========================================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+
+  height: var(--navbar-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  background: rgba(12, 19, 34, 0.94);
+  border-bottom: 1px solid var(--border-color);
+
+  backdrop-filter: blur(14px);
+
+  z-index: 1100;
+}
+
+
+/* =========================================================
+   NAVBAR LEFT
+   ---------------------------------------------------------
+   Matches:
+   <div className="navbar-left">
+   
+   Contains:
+   - Mobile menu button
+   - Personal Finance title
+========================================================= */
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* =========================================================
+   NAVBAR TITLE
+   ---------------------------------------------------------
+   Matches:
+   <span className="navbar-title">
+     Personal Finance
+   </span>
+========================================================= */
+
+.navbar-title {
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVBAR RIGHT
+   ---------------------------------------------------------
+   Matches:
+   <div className="navbar-right">
+   
+   Contains:
+   - Notification
+   - Profile
+========================================================= */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ---------------------------------------------------------
+   Matches:
+   <button className="mobile-menu-button">
+     <Menu />
+   </button>
+   
+   Hidden on desktop.
+   Shown on mobile.
+========================================================= */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Mobile menu hover */
+
+.mobile-menu-button:hover {
+  color: var(--primary-cyan);
+  border-color: var(--primary-cyan);
+  background: rgba(0, 198, 255, 0.08);
+}
+
+
+/* Keyboard accessibility */
+
+.mobile-menu-button:focus-visible {
+  outline: 2px solid var(--primary-cyan);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   NOTIFICATION CONTAINER
+   ---------------------------------------------------------
+   Matches:
+   <div className="notification-button">
+     <NotificationBell />
+   </div>
+   
+   Note:
+   The actual bell is rendered by NotificationBell.jsx.
+========================================================= */
+
+.notification-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   NOTIFICATION BELL
+   ---------------------------------------------------------
+   This styles the element rendered inside:
+   
+   <NotificationBell />
+   
+   Keep this only if NotificationBell.jsx uses
+   className="notification-bell".
+========================================================= */
+
+.notification-bell {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #293548;
+  border-radius: 12px;
+
+  background: #151e2e;
+  color: #cbd5e1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Notification bell hover */
+
+.notification-bell:hover {
+  background: rgba(0, 198, 255, 0.12);
+  border-color: #00c6ff;
+  color: #00c6ff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   NOTIFICATION BADGE
+   ---------------------------------------------------------
+   Used if NotificationBell.jsx contains:
+   
+   <span className="notification-badge">
+========================================================= */
+
+.notification-badge {
+  position: absolute;
+
+  top: -6px;
+  right: -6px;
+
+  min-width: 19px;
+  height: 19px;
+
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ef4444;
+  color: #ffffff;
+
+  border: 2px solid #0a0f1c;
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+/* Notification keyboard accessibility */
+
+.notification-bell:focus-visible {
+  outline: 2px solid #00c6ff;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   PROFILE CONTAINER
+   ---------------------------------------------------------
+   Matches:
+   
+   <div className="profile">
+     <button className="profile-avatar ...">
+     ...
+     <div className="profile-info">
+   
+   The avatar and profile text are side-by-side.
+========================================================= */
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   PROFILE AVATAR
+   ---------------------------------------------------------
+   Matches EXACTLY:
+   
+   <button
+     type="button"
+     className="profile-avatar profile-avatar-button"
+   >
+   
+   Important:
+   ONLY this button is clickable.
+========================================================= */
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--gradient-primary);
+  color: #00120d;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CLICKABLE AVATAR BUTTON
+   ---------------------------------------------------------
+   Additional button reset styles.
+   
+   The JSX uses BOTH:
+   .profile-avatar
+   .profile-avatar-button
+========================================================= */
+
+.profile-avatar-button {
+  padding: 0;
+  margin: 0;
+
+  border: none;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Avatar hover effect */
+
+.profile-avatar-button:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 16px rgba(0, 198, 255, 0.3);
+}
+
+
+/* Avatar keyboard accessibility */
+
+.profile-avatar-button:focus-visible {
+  outline: 2px solid #00c6ff;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   PROFILE INFORMATION
+   ---------------------------------------------------------
+   Matches:
+   
+   <div className="profile-info">
+     <span className="profile-name">
+     <span className="profile-role">
+   
+   This section is NOT clickable.
+========================================================= */
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   PROFILE NAME
+   ---------------------------------------------------------
+   Matches:
+   
+   <span className="profile-name">
+     {displayName}
+   </span>
+========================================================= */
+
+.profile-name {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PROFILE ROLE
+   ---------------------------------------------------------
+   Matches:
+   
+   <span className="profile-role">
+     Personal Account
+   </span>
+========================================================= */
+
+.profile-role {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 0.1px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION OVERLAY
+   ---------------------------------------------------------
+   Matches:
+   
+   {menuOpen && (
+     <div className="mobile-nav-overlay">
+   
+   Hidden until menuOpen === true.
+   
+   The React JSX controls whether it exists.
+   CSS only controls its appearance.
+========================================================= */
+
+.mobile-nav-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  z-index: 2000;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION DRAWER
+   ---------------------------------------------------------
+   Matches:
+   
+   <aside className="mobile-nav">
+   
+   This is the slide-out navigation panel.
+========================================================= */
+
+.mobile-nav {
+  width: min(300px, 82vw);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-sidebar);
+
+  border-right: 1px solid var(--border-color);
+
+  box-shadow:
+    20px 0 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   MOBILE NAV HEADER
+   ---------------------------------------------------------
+   Matches:
+   
+   <div className="mobile-nav-header">
+   
+   Contains:
+   - WalletWise logo
+   - Close button
+========================================================= */
+
+.mobile-nav-header {
+  height: var(--navbar-height);
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+
+/* =========================================================
+   MOBILE NAV LOGO
+   ---------------------------------------------------------
+   Matches:
+   
+   <div className="mobile-nav-logo">
+     <div className="logo-circle">W</div>
+     <span>WalletWise</span>
+   </div>
+========================================================= */
+
+.mobile-nav-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MOBILE LOGO CIRCLE
+   ---------------------------------------------------------
+   Matches:
+   
+   <div className="logo-circle">W</div>
+========================================================= */
+
+.mobile-nav-logo .logo-circle {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--gradient-primary);
+
+  color: #03120e;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MOBILE CLOSE BUTTON
+   ---------------------------------------------------------
+   Matches:
+   
+   <button className="mobile-close-button">
+     <X />
+   </button>
+========================================================= */
+
+.mobile-close-button {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Close button hover */
+
+.mobile-close-button:hover {
+  color: #ff8da2;
+
+  border-color: rgba(255, 92, 122, 0.35);
+
+  background: rgba(255, 92, 122, 0.08);
+}
+
+
+/* Keyboard accessibility */
+
+.mobile-close-button:focus-visible {
+  outline: 2px solid var(--primary-cyan);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION LINKS CONTAINER
+   ---------------------------------------------------------
+   Matches:
+   
+   <nav className="mobile-nav-links">
+     <NavLink ... />
+     ...
+   </nav>
+========================================================= */
+
+.mobile-nav-links {
+  padding: 20px 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  flex: 1;
+
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION LINK
+   ---------------------------------------------------------
+   Matches:
+   
+   <NavLink className="mobile-nav-link">
+     <Icon />
+     <span>{label}</span>
+   </NavLink>
+========================================================= */
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 13px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  color: var(--text-secondary);
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* =========================================================
+   MOBILE NAV LINK HOVER / ACTIVE
+   ---------------------------------------------------------
+   NavLink automatically receives the "active" class
+   through your JSX:
+   
+   className={({ isActive }) =>
+     `mobile-nav-link ${isActive ? "active" : ""}`
+   }
+========================================================= */
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: #fff;
+
+  background: rgba(0, 198, 255, 0.08);
+
+  border-color: rgba(0, 198, 255, 0.12);
+}
+
+
+/* =========================================================
+   MOBILE NAV ICON
+   ---------------------------------------------------------
+   Styles the Lucide React <Icon /> inside each NavLink.
+========================================================= */
+
+.mobile-nav-link svg {
+  flex-shrink: 0;
+
+  color: var(--primary-cyan);
+}
+
+
+/* =========================================================
+   INDIVIDUAL MOBILE NAV ICON COLORS
+   ---------------------------------------------------------
+   The order corresponds directly to the "links" array
+   in Navbar.jsx.
+========================================================= */
+
+
+/* 1. Dashboard */
+
+.mobile-nav-link:nth-child(1) svg {
+  color: #00e5a8;
+}
+
+
+/* 2. Transactions */
+
+.mobile-nav-link:nth-child(2) svg {
+  color: #00c6ff;
+}
+
+
+/* 3. Budgets */
+
+.mobile-nav-link:nth-child(3) svg {
+  color: #a78bfa;
+}
+
+
+/* 4. Goals */
+
+.mobile-nav-link:nth-child(4) svg {
+  color: #f59e0b;
+}
+
+
+/* 5. Analytics */
+
+.mobile-nav-link:nth-child(5) svg {
+  color: #ec4899;
+}
+
+
+/* 6. AI Advisor */
+
+.mobile-nav-link:nth-child(6) svg {
+  color: #00f7ff;
+}
+
+
+/* 7. What-If Simulator */
+
+.mobile-nav-link:nth-child(7) svg {
+  color: #eae671;
+}
+
+
+/* 8. AI Agent */
+
+.mobile-nav-link:nth-child(8) svg {
+  color: #ff8da2;
+}
+
+
+/* 9. AI Approvals */
+
+.mobile-nav-link:nth-child(9) svg {
+  color: #8dff95;
+}
+
+
+/* =========================================================
+   MOBILE LOGOUT BUTTON
+   ---------------------------------------------------------
+   Matches:
+   
+   <button className="mobile-logout">
+     <LogOut />
+     <span>Logout</span>
+   </button>
+   
+   Appears at the bottom of the mobile drawer.
+========================================================= */
+
+.mobile-logout {
+  margin: 15px;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 92, 122, 0.15);
+  border-radius: 10px;
+
+  background: rgba(255, 92, 122, 0.06);
+
+  color: #ff8da2;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Logout hover */
+
+.mobile-logout:hover {
+  background: rgba(255, 92, 122, 0.12);
+
+  border-color: rgba(255, 92, 122, 0.3);
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE NAVBAR
+   ---------------------------------------------------------
+   Applies to screens 700px and below.
+   
+   This matches the breakpoint used by the mobile menu
+   in your Navbar.jsx design.
+========================================================= */
+
+@media (max-width: 700px) {
+
+  /* -------------------------------------------------------
+     Navbar fills the entire screen width.
+     
+     Desktop:
+       left: var(--sidebar-width)
+     
+     Mobile:
+       left: 0
+  ------------------------------------------------------- */
+
+  .navbar {
+    left: 0;
+
+    padding: 0 14px;
+  }
+
+
+  /* -------------------------------------------------------
+     Show hamburger menu on mobile.
+  ------------------------------------------------------- */
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+
+  /* -------------------------------------------------------
+     Hide username and "Personal Account" on mobile.
+     
+     Avatar remains visible.
+  ------------------------------------------------------- */
+
+  .profile-info {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Reduce spacing between notification and avatar.
+  ------------------------------------------------------- */
+
+  .navbar-right {
+    gap: 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     Make notification bell slightly smaller.
+  ------------------------------------------------------- */
+
+  .notification-bell {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     Mobile navigation overlay.
+     
+     It is rendered by React only when:
+       menuOpen === true
+  ------------------------------------------------------- */
+
+  .mobile-nav-overlay {
+    display: block;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ---------------------------------------------------------
+   Additional protection for narrow phones.
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .navbar {
+    padding: 0 10px;
+  }
+
+  .navbar-left {
+    gap: 8px;
+  }
+
+  .navbar-right {
+    gap: 7px;
+  }
+
+  .navbar-title {
+    font-size: 13px;
+  }
+
+  .mobile-menu-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .profile-avatar {
+    width: 34px;
+    height: 34px;
+  }
+}

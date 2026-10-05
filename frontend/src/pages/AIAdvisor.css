@@ -1,0 +1,214 @@
+.ai-advisor-page {
+    padding: 30px;
+    min-height: 100%;
+}
+
+.ai-advisor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.ai-advisor-header h1 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: 28px;
+}
+
+.ai-advisor-header p {
+    margin: 8px 0 0;
+    color: var(--text-secondary);
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 14px;
+    border-radius: 20px;
+    background: rgba(0, 198, 255, 0.1);
+    border: 1px solid rgba(0, 198, 255, 0.25);
+    color: #00c6ff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ai-advisor-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.ai-welcome-card {
+    text-align: center;
+    padding: 45px 25px 30px;
+}
+
+.ai-icon {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        #00e5a8,
+        #00c6ff,
+        #0072ff
+    );
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 198, 255, 0.2);
+}
+
+.ai-welcome-card h2 {
+    margin: 20px 0 8px;
+    font-size: 25px;
+}
+
+.ai-welcome-card p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.suggestion-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 20px 0 30px;
+}
+
+.suggestion-card {
+    text-align: left;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.suggestion-card:hover {
+    transform: translateY(-2px);
+    border-color: #00c6ff;
+    background: rgba(0, 198, 255, 0.06);
+}
+
+.ai-response {
+    margin-bottom: 20px;
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 198, 255, 0.2);
+    background: var(--card-bg);
+}
+
+.response-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.response-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(0, 229, 168, 0.12);
+    color: #00e5a8;
+}
+
+.response-content {
+    white-space: pre-wrap;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.ai-error {
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: rgba(255, 70, 70, 0.1);
+    border: 1px solid rgba(255, 70, 70, 0.2);
+    color: #ff6b6b;
+}
+
+.ai-input-container {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.ai-input-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 15px;
+    padding: 12px;
+}
+
+.ai-input-container input::placeholder {
+    color: var(--text-secondary);
+}
+
+.ai-input-container button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: none;
+    border-radius: 12px;
+    padding: 0 20px;
+    background: linear-gradient(
+        135deg,
+        #00e5a8,
+        #00c6ff
+    );
+    color: #061019;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ai-input-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+
+    .ai-advisor-page {
+        padding: 20px;
+    }
+
+    .ai-advisor-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .suggestion-container {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-input-container {
+        flex-direction: column;
+    }
+
+    .ai-input-container button {
+        justify-content: center;
+        padding: 13px;
+    }
+}

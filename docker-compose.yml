@@ -1,0 +1,53 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: walletwise-backend
+
+    ports:
+      - "5000:5000"
+
+    env_file:
+      - ./backend/.env
+
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      ML_SERVICE_URL: http://ml-service:8000
+
+    depends_on:
+      - ml-service
+
+    restart: unless-stopped
+
+
+  ml-service:
+    build:
+      context: "./ml-service"
+      dockerfile: Dockerfile
+
+    container_name: walletwise-ml
+
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    container_name: walletwise-frontend
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - backend
+
+    restart: unless-stopped

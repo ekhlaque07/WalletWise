@@ -1,0 +1,580 @@
+/* =========================================================
+   APPROVALS PAGE
+   ========================================================= */
+
+.approvals-page {
+  min-height: 100%;
+  padding: 32px;
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.approvals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.approvals-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.approvals-header p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.approval-header-icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 229, 168, 0.15),
+    rgba(0, 114, 255, 0.15)
+  );
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+
+  color: #00e5a8;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.approval-error {
+  margin-bottom: 22px;
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  background: rgba(239, 68, 68, 0.10);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+
+  color: #fca5a5;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.approval-loading {
+  min-height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-approvals {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  border-radius: 18px;
+
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+
+  text-align: center;
+}
+
+.empty-approvals > svg {
+  margin-bottom: 16px;
+  color: #00e5a8;
+}
+
+.empty-approvals h2 {
+  margin: 0 0 8px;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.empty-approvals p {
+  max-width: 450px;
+  margin: 0;
+
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   APPROVAL LIST
+   ========================================================= */
+
+.approval-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   APPROVAL CARD
+   ========================================================= */
+
+.approval-card {
+  padding: 22px;
+
+  border-radius: 18px;
+
+  background: rgba(15, 23, 42, 0.72);
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.approval-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(0, 229, 168, 0.25);
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.approval-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+
+/* =========================================================
+   BOT ICON
+   ========================================================= */
+
+.approval-icon {
+  flex-shrink: 0;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(0, 229, 168, 0.10);
+
+  border: 1px solid rgba(0, 229, 168, 0.16);
+
+  color: #00e5a8;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.approval-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.approval-content h2 {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #f8fafc;
+
+  word-break: break-word;
+}
+
+.approval-content p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.approval-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 14px;
+}
+
+.approval-meta > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.approval-meta > span:first-child svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.approval-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+
+/* Pending */
+
+.status-pending {
+  color: #fbbf24;
+
+  background: rgba(245, 158, 11, 0.10);
+
+  border: 1px solid rgba(245, 158, 11, 0.20);
+}
+
+
+/* Executed */
+
+.status-executed {
+  color: #34d399;
+
+  background: rgba(16, 185, 129, 0.10);
+
+  border: 1px solid rgba(16, 185, 129, 0.20);
+}
+
+
+/* Rejected */
+
+.status-rejected {
+  color: #f87171;
+
+  background: rgba(239, 68, 68, 0.10);
+
+  border: 1px solid rgba(239, 68, 68, 0.20);
+}
+
+
+/* Failed */
+
+.status-failed {
+  color: #fb7185;
+
+  background: rgba(244, 63, 94, 0.10);
+
+  border: 1px solid rgba(244, 63, 94, 0.20);
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.approval-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.approval-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 40px;
+
+  padding: 9px 16px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.approval-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.approval-actions button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.approval-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   REJECT BUTTON
+   ========================================================= */
+
+.reject-btn {
+  color: #fca5a5;
+
+  background: rgba(239, 68, 68, 0.08);
+
+  border: 1px solid rgba(239, 68, 68, 0.18);
+}
+
+.reject-btn:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.14);
+
+  border-color: rgba(239, 68, 68, 0.30);
+}
+
+
+/* =========================================================
+   APPROVE BUTTON
+   ========================================================= */
+
+.approve-btn {
+  color: #06131a;
+
+  background: linear-gradient(
+    135deg,
+    #00e5a8,
+    #00c6ff
+  );
+
+  border: 1px solid transparent;
+
+  box-shadow:
+    0 5px 18px rgba(0, 229, 168, 0.15);
+}
+
+.approve-btn:hover:not(:disabled) {
+  box-shadow:
+    0 8px 24px rgba(0, 229, 168, 0.24);
+}
+
+
+/* =========================================================
+   COMPLETED STATE
+   ========================================================= */
+
+.approval-completed {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  margin-top: 18px;
+  padding-top: 16px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.approval-completed svg {
+  width: 16px;
+  height: 16px;
+}
+
+.status-executed + .approval-completed {
+  color: #34d399;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .approvals-page {
+    padding: 20px 16px;
+  }
+
+  .approvals-header {
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .approvals-header h1 {
+    font-size: 25px;
+  }
+
+  .approvals-header p {
+    font-size: 13px;
+  }
+
+  .approval-header-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  .approval-card {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .approval-card-top {
+    gap: 12px;
+  }
+
+  .approval-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .approval-content h2 {
+    font-size: 16px;
+  }
+
+  .approval-content p {
+    font-size: 13px;
+  }
+
+  .approval-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .approval-actions button {
+    width: 100%;
+  }
+
+  .approval-completed {
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .approvals-page {
+    padding: 16px 12px;
+  }
+
+  .approvals-header {
+    gap: 12px;
+  }
+
+  .approvals-header h1 {
+    font-size: 22px;
+  }
+
+  .approval-header-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .approval-header-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .approval-card {
+    padding: 15px;
+  }
+
+  .approval-meta {
+    gap: 9px;
+  }
+
+  .empty-approvals {
+    padding: 30px 20px;
+  }
+}

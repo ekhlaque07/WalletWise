@@ -1,0 +1,151 @@
+.goals-page {
+  max-width: 1500px;
+  margin: auto;
+}
+
+.goals-layout {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 22px;
+}
+
+.goal-form-card {
+  padding: 22px;
+  height: fit-content;
+}
+
+.goal-form-card h2 {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.goal-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.goal-card {
+  padding: 22px;
+}
+
+.goal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.goal-header h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.goal-header span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.goal-percentage {
+  min-width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      var(--card-bg),
+      var(--card-bg)
+    )
+    padding-box,
+    var(--gradient-primary) border-box;
+
+  border: 2px solid transparent;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.goal-progress {
+  margin-top: 25px;
+}
+
+.goal-progress-bar {
+  height: 8px;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.goal-progress-fill {
+  height: 100%;
+
+  background: var(--gradient-primary);
+
+  border-radius: 10px;
+
+  transition: width 0.4s ease;
+}
+
+.goal-values {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 20px;
+}
+
+.goal-values div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.goal-values span {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.goal-values strong {
+  font-size: 13px;
+}
+
+.goal-deadline {
+  margin-top: 18px;
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+}
+
+.goal-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+@media (max-width: 1050px) {
+  .goals-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .goals-grid {
+    grid-template-columns: 1fr;
+  }
+}

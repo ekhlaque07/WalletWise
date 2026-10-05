@@ -1,0 +1,469 @@
+/* =========================================
+   ANALYTICS PAGE
+========================================= */
+
+.analytics-page {
+  padding: 28px;
+  max-width: 1550px;
+  margin: 0 auto;
+  color: var(--text-primary);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.analytics-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.analytics-header h1 {
+  font-size: 28px;
+  margin: 0 0 7px;
+}
+
+.analytics-header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
+}
+
+.analytics-refresh {
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.analytics-refresh:hover {
+  background: var(--card-bg-hover);
+  border-color: rgba(0, 229, 168, 0.3);
+}
+
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.analytics-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.analytics-card,
+.chart-card,
+.analytics-insight,
+.health-card,
+.analytics-insights-section,
+.goals-analytics-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.analytics-card {
+  padding: 22px;
+  min-height: 145px;
+  transition: 0.2s ease;
+}
+
+.analytics-card:hover,
+.analytics-insight:hover,
+.health-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 229, 168, 0.18);
+}
+
+.analytics-card-label {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.analytics-card h2 {
+  margin: 13px 0 7px;
+  font-size: 26px;
+}
+
+.analytics-card-info {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.income-value {
+  color: var(--primary-green);
+}
+
+.expense-value {
+  color: var(--danger);
+}
+
+.balance-value {
+  color: var(--primary-cyan);
+}
+
+.negative-value {
+  color: var(--danger);
+}
+
+.saving-value {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   INSIGHTS
+========================================= */
+
+.analytics-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.analytics-insight {
+  padding: 19px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  transition: 0.2s ease;
+}
+
+.analytics-insight div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.analytics-insight span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.analytics-insight small {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.analytics-insight strong {
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.income-text {
+  color: var(--primary-green);
+}
+
+.expense-text {
+  color: var(--danger);
+}
+
+
+/* =========================================
+   CHART GRID
+========================================= */
+
+.analytics-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.chart-wide {
+  margin-top: 18px;
+  width: 100%;
+}
+
+.chart-card {
+  min-height: 390px;
+  overflow: hidden;
+}
+
+.chart-header {
+  padding: 20px 22px 0;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.chart-header p {
+  margin: 5px 0 0;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.chart-container {
+  height: 310px;
+  padding: 12px 14px 16px;
+}
+
+.large-chart {
+  height: 370px;
+}
+
+.chart-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 30px;
+}
+
+
+/* =========================================
+   FINANCIAL HEALTH
+========================================= */
+
+.analytics-health-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.health-card {
+  padding: 22px;
+}
+
+.health-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.health-title span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.health-title strong {
+  font-size: 20px;
+  color: var(--primary-cyan);
+}
+
+.health-progress {
+  height: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 16px 0 12px;
+}
+
+.health-progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.health-card p {
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* =========================================
+   FINANCIAL INSIGHTS SECTION
+========================================= */
+
+.analytics-insights-section {
+  margin-top: 18px;
+  padding-bottom: 20px;
+}
+
+.insight-list {
+  display: grid;
+  gap: 10px;
+  padding: 18px 22px 0;
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.insight-icon {
+  color: var(--primary-green);
+  font-size: 16px;
+}
+
+.insight-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   GOAL ANALYTICS
+========================================= */
+
+.goals-analytics-section {
+  margin-top: 18px;
+  padding-bottom: 22px;
+}
+
+.goal-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px 22px 0;
+}
+
+.goal-analytics-card {
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.goal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.goal-top strong {
+  font-size: 13px;
+}
+
+.goal-top span {
+  color: var(--primary-green);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.goal-progress {
+  height: 7px;
+  margin: 13px 0;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.goal-progress div {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.goal-money {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+
+/* =========================================
+   LOADING / ERROR
+========================================= */
+
+.analytics-loading,
+.analytics-error {
+  margin: 30px;
+  padding: 50px;
+  text-align: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+}
+
+.analytics-error {
+  color: #ff9db0;
+}
+
+.analytics-retry {
+  display: block;
+  margin: 15px auto;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+  .analytics-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .analytics-insights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .analytics-chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-health-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .analytics-page {
+    padding: 18px;
+  }
+
+  .analytics-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .analytics-summary-grid,
+  .analytics-insights-grid,
+  .goal-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    min-height: 340px;
+  }
+
+  .chart-container {
+    height: 270px;
+  }
+
+  .large-chart {
+    height: 300px;
+  }
+}

@@ -1,0 +1,888 @@
+
+/* =====================================================
+   BUDGET PAGE
+===================================================== */
+
+.budget-page {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.budget-summary {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.summary-card {
+  padding: 22px;
+  min-height: 115px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(
+    --gradient-primary
+  );
+}
+
+.summary-card span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.summary-card strong {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.summary-card small {
+  color: var(--danger);
+  font-size: 12px;
+}
+
+.summary-danger strong {
+  color: var(--danger);
+}
+
+
+/* =====================================================
+   CREATE BUDGET SECTION
+===================================================== */
+
+.budget-create-section {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.budget-form-card {
+  width: 100%;
+  padding: 24px;
+  position: relative;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.card-heading {
+  margin-bottom: 24px;
+}
+
+.card-heading h2 {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.card-heading p {
+  margin-top: 7px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.budget-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+
+/* =====================================================
+   ALERTS
+===================================================== */
+
+.budget-alerts {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid
+    rgba(255, 184, 77, 0.15);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 184, 77, 0.06),
+      rgba(255, 92, 122, 0.03)
+    );
+}
+
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-label {
+  color: var(--primary-cyan);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.alerts-header h2 {
+  margin-top: 4px;
+  font-size: 18px;
+}
+
+.alert-count {
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #06120e;
+  font-weight: 800;
+  background: var(
+    --gradient-primary
+  );
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.budget-alert {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border-radius: 11px;
+  border: 1px solid
+    var(--border-color);
+  background: rgba(
+    255,
+    255,
+    255,
+    0.025
+  );
+}
+
+.alert-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.budget-alert.error
+  .alert-icon {
+  color: var(--danger);
+  background: rgba(
+    255,
+    92,
+    122,
+    0.1
+  );
+}
+
+.budget-alert.warning
+  .alert-icon {
+  color: var(--warning);
+  background: rgba(
+    255,
+    184,
+    77,
+    0.1
+  );
+}
+
+.budget-alert.info
+  .alert-icon {
+  color: var(--primary-cyan);
+  background: rgba(
+    0,
+    198,
+    255,
+    0.1
+  );
+}
+
+.budget-alert strong {
+  font-size: 13px;
+}
+
+.budget-alert p {
+  margin-top: 3px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   BUDGET LIST SECTION
+===================================================== */
+
+.budget-list-section {
+  width: 100%;
+  margin-top: 0;
+}
+
+.budget-list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 17px;
+}
+
+.budget-list-heading h2 {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.budget-list-heading p {
+  margin-top: 7px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.budget-count {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   BUDGET GRID
+===================================================== */
+
+.budget-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+
+/* =====================================================
+   BUDGET CARD
+===================================================== */
+
+.budget-card {
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.budget-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(
+    0,
+    198,
+    255,
+    0.2
+  );
+}
+
+
+/* =====================================================
+   CARD STATUS TOP BORDER
+===================================================== */
+
+.budget-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: var(
+    --gradient-primary
+  );
+}
+
+.budget-card.status-warning::before,
+.budget-card.status-critical::before {
+  background: var(--warning);
+}
+
+.budget-card.status-exceeded::before {
+  background: var(--danger);
+}
+
+
+/* =====================================================
+   CARD TOP
+===================================================== */
+
+.budget-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.budget-label {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.budget-card h3 {
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.budget-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  color: #03120e;
+  font-weight: 800;
+  background: var(
+    --gradient-primary
+  );
+  box-shadow:
+    0 8px 20px
+      rgba(0, 198, 255, 0.12);
+}
+
+
+/* =====================================================
+   MONEY
+===================================================== */
+
+.budget-money-row {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.budget-money-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.budget-money-row span {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.budget-money-row strong {
+  font-size: 17px;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.budget-progress {
+  margin-bottom: 15px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.07
+  );
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(
+    --gradient-primary
+  );
+  transition:
+    width 0.5s ease;
+}
+
+.status-warning
+  .progress-fill,
+.status-critical
+  .progress-fill {
+  background: var(--warning);
+}
+
+.status-exceeded
+  .progress-fill {
+  background: var(--danger);
+}
+
+
+/* =====================================================
+   REMAINING
+===================================================== */
+
+.remaining-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  border: 1px solid
+    rgba(
+      0,
+      229,
+      168,
+      0.1
+    );
+  border-radius: 11px;
+  background: rgba(
+    0,
+    229,
+    168,
+    0.035
+  );
+  margin-bottom: 13px;
+}
+
+.remaining-box.negative {
+  border-color: rgba(
+    255,
+    92,
+    122,
+    0.15
+  );
+  background: rgba(
+    255,
+    92,
+    122,
+    0.05
+  );
+}
+
+.remaining-box div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.remaining-box span {
+  color: var(--text-secondary);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.remaining-box strong {
+  font-size: 16px;
+}
+
+.remaining-box.negative
+  strong {
+  color: var(--danger);
+}
+
+
+/* =====================================================
+   STATUS BADGE
+===================================================== */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.status-badge.safe {
+  color: var(--success);
+  background: rgba(
+    0,
+    229,
+    168,
+    0.08
+  );
+}
+
+.status-badge.warning,
+.status-badge.critical {
+  color: var(--warning);
+  background: rgba(
+    255,
+    184,
+    77,
+    0.09
+  );
+}
+
+.status-badge.exceeded {
+  color: var(--danger);
+  background: rgba(
+    255,
+    92,
+    122,
+    0.09
+  );
+}
+
+
+/* =====================================================
+   STATUS MESSAGE
+===================================================== */
+
+.budget-status-message {
+  min-height: 35px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.budget-date {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid
+    var(--border-color);
+}
+
+.budget-date span {
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.budget-date strong {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   TRANSACTION COUNT
+===================================================== */
+
+.budget-transactions {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.budget-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 8px 13px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.edit-button {
+  border: 1px solid
+    rgba(
+      0,
+      198,
+      255,
+      0.15
+    );
+  color: var(--primary-cyan);
+  background: rgba(
+    0,
+    198,
+    255,
+    0.05
+  );
+}
+
+.edit-button:hover {
+  background: rgba(
+    0,
+    198,
+    255,
+    0.1
+  );
+}
+
+.delete-button {
+  border: 1px solid
+    rgba(
+      255,
+      92,
+      122,
+      0.15
+    );
+  color: var(--danger);
+  background: rgba(
+    255,
+    92,
+    122,
+    0.05
+  );
+}
+
+.delete-button:hover {
+  background: rgba(
+    255,
+    92,
+    122,
+    0.1
+  );
+}
+
+
+/* =====================================================
+   EMPTY / LOADING
+===================================================== */
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  color: #03120e;
+  font-weight: 800;
+  background: var(
+    --gradient-primary
+  );
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.loading {
+  grid-column: 1 / -1;
+  padding: 50px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .budget-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .budget-summary {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .budget-page {
+    padding: 18px;
+  }
+
+  .budget-money-row {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .budget-summary {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 16px;
+    min-height: 95px;
+  }
+
+  .summary-card strong {
+    font-size: 21px;
+  }
+
+
+  /* CREATE BUDGET */
+
+  .budget-create-section {
+    margin-bottom: 20px;
+  }
+
+  .budget-form-card {
+    padding: 18px;
+  }
+
+
+  /* ALERTS */
+
+  .budget-alerts {
+    padding: 17px;
+    margin-bottom: 20px;
+  }
+
+
+  /* BUDGET LIST HEADER */
+
+  .budget-list-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+
+  /* BUDGET GRID */
+
+  .budget-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+
+  /* MONEY */
+
+  .budget-money-row {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  /* REMAINING */
+
+  .remaining-box {
+    gap: 10px;
+  }
+
+
+  /* ACTIONS */
+
+  .budget-actions {
+    display: grid;
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .budget-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-money-row {
+    grid-template-columns: 1fr;
+  }
+
+  .remaining-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-badge {
+    align-self: flex-start;
+  }
+
+}
+

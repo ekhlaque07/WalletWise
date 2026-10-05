@@ -1,0 +1,98 @@
+.anomaly-card {
+    width: 100%;
+    padding: 24px;
+    border-radius: 18px;
+    background: var(--card-bg, #111827);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.anomaly-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.anomaly-card h2 svg {
+    color: #f59e0b;
+}
+
+.no-anomalies {
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.no-anomalies svg {
+    color: #10b981;
+    margin-bottom: 12px;
+}
+
+.no-anomalies h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.no-anomalies p {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.anomaly-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.anomaly-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.anomaly-item h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.anomaly-item p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.anomaly-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.anomaly-amount strong {
+    font-size: 16px;
+}
+
+.anomaly-amount span {
+    font-size: 12px;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.12);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+    .anomaly-card {
+        padding: 16px;
+    }
+
+    .anomaly-item {
+        align-items: flex-start;
+    }
+}
