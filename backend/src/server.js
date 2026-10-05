@@ -1,3 +1,54 @@
+const dns = require("dns");
+
+dns.lookup(
+    "smtp.gmail.com",
+    { family: 4 },
+    (err, address) => {
+        if (err) {
+            console.error("GMAIL DNS ERROR:", err);
+            return;
+        }
+
+        console.log(
+            "GMAIL IPv4 ADDRESS:",
+            address
+        );
+    }
+);
+
+const net = require("net");
+
+const socket = new net.Socket();
+
+socket.setTimeout(10000);
+
+socket.connect(
+    587,
+    "smtp.gmail.com",
+    () => {
+        console.log(
+            "GMAIL SMTP PORT 587: CONNECTED"
+        );
+
+        socket.destroy();
+    }
+);
+
+socket.on("timeout", () => {
+    console.error(
+        "GMAIL SMTP PORT 587: TIMEOUT"
+    );
+
+    socket.destroy();
+});
+
+socket.on("error", (error) => {
+    console.error(
+        "GMAIL SMTP PORT 587 ERROR:",
+        error.message
+    );
+});
+
 const dotenv = require("dotenv");
 
 dotenv.config();
