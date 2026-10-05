@@ -11,27 +11,7 @@ const errorMiddleware = require("./middleware/errorMiddleware");
 
 const app = express();
 
-// =====================================================
-// TRUST PROXY
-// =====================================================
 
-app.set("trust proxy", 1);
-
-// =====================================================
-// SECURITY HEADERS
-// =====================================================
-
-app.use(
-    helmet({
-        crossOriginResourcePolicy: {
-            policy: "cross-origin",
-        },
-    })
-);
-
-// =====================================================
-// CORS
-// =====================================================
 
 // =====================================================
 // CORS
@@ -42,9 +22,7 @@ const allowedOrigins = (
     "http://localhost:5173"
 )
     .split(",")
-    .map((origin) =>
-        origin.trim().replace(/\/$/, "")
-    )
+    .map((origin) => origin.trim().replace(/\/$/, ""))
     .filter(Boolean);
 
 console.log("=================================");
@@ -55,10 +33,12 @@ console.log("=================================");
 app.use(
     cors({
         origin: function (origin, callback) {
-            console.log("Incoming CORS Origin:", origin);
+            console.log("=================================");
+            console.log("INCOMING ORIGIN:", origin);
+            console.log("ALLOWED ORIGINS:", allowedOrigins);
 
-            // Allow requests without an Origin header
             if (!origin) {
+                console.log("CORS: NO ORIGIN");
                 return callback(null, true);
             }
 
@@ -67,13 +47,13 @@ app.use(
                 .replace(/\/$/, "");
 
             console.log(
-                "Normalized Origin:",
+                "NORMALIZED ORIGIN:",
                 normalizedOrigin
             );
 
             if (allowedOrigins.includes(normalizedOrigin)) {
                 console.log(
-                    "CORS ALLOWED:",
+                    "CORS: ALLOWED",
                     normalizedOrigin
                 );
 
@@ -81,7 +61,7 @@ app.use(
             }
 
             console.error(
-                "CORS BLOCKED:",
+                "CORS: BLOCKED",
                 normalizedOrigin
             );
 
@@ -107,6 +87,25 @@ app.use(
         ],
     })
 );
+
+// =====================================================
+// TRUST PROXY
+// =====================================================
+
+app.set("trust proxy", 1);
+
+// =====================================================
+// SECURITY HEADERS
+// =====================================================
+
+app.use(
+    helmet({
+        crossOriginResourcePolicy: {
+            policy: "cross-origin",
+        },
+    })
+);
+
 
 // =====================================================
 // BODY PARSER
