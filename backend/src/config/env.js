@@ -1,6 +1,8 @@
 const requiredEnv = [
   "MONGO_URI",
   "JWT_SECRET",
+  "RESEND_API_KEY",
+  "EMAIL_FROM",
 ];
 
 const validateEnv = () => {
